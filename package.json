@@ -1,0 +1,16 @@
+{
+  "name": "hexo-tag-github-code",
+  "version": "0.0.0",
+  "description": "insert github code",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkmk/hexo-tag-github-code.git"
+  },
+  "author": "nkmk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nkmk/hexo-tag-github-code/issues"
+  },
+  "homepage": "https://github.com/nkmk/hexo-tag-github-code#readme"
+}
