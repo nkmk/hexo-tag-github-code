@@ -2,7 +2,7 @@
 
 Insert code from [GitHub](https://github.com/) when static files are generated.
 
-Not embedded.
+Not embed.
 
 ## Install
 
@@ -14,6 +14,19 @@ $ npm install hexo-tag-github-code --save
 ```
 {% ghcode URL [start_line stop_line] [options] %}
 ```
+
+## Support URL
+### GitHub / Gist
+- URL of each file page
+  - https://github.com/nkmk/hexo-tag-github-code/blob/master/index.js
+  - https://gist.github.com/nkmk/d60cdbcffdb60d624ac01871543f79a2
+  - https://gist.github.com/nkmk/d60cdbcffdb60d624ac01871543f79a2#file-sample-py
+- URL link to raw file
+  - https://raw.githubusercontent.com/nkmk/hexo-tag-github-code/master/index.js
+  - https://gist.githubusercontent.com/nkmk/d60cdbcffdb60d624ac01871543f79a2/raw/e7528c00addcdd0b4d00cb9bbd8d225cc132fbfc/sample.py
+
+### Other site
+If URL links to raw file, it will work.
 
 ## Options
 
