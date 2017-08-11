@@ -66,7 +66,14 @@ function ghcode(args){
         re: re_default
     }, options);
 
-    var raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '')
+    var raw_url
+
+    if(url.search(/github.com/) != -1){
+        raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '')
+    }else{
+        raw_url = url
+    }
+
     var ext = path.extname(raw_url).slice(1)
     var basename = path.basename(raw_url)
     return new Promise(function(resolve, reject){
