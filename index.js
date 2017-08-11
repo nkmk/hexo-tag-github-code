@@ -50,7 +50,7 @@ function ghcode(args){
     }
 
     var cap_default = true
-    var re_default = true
+    var re_default = false
 
     if('github_code' in hexo.config){
         if('cap' in hexo.config.github_code){
@@ -78,7 +78,7 @@ function ghcode(args){
             }else{
                 arg = ['lang:' + ext]
             }
-            if(options['re']){
+            if(!options['re']){
                 arg.push('first_line:' + start)
             }
             result = codeTag(arg, split_data)
