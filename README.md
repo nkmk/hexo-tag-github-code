@@ -17,11 +17,11 @@ $ npm install hexo-tag-github-code --save
 
 ## Support URL
 ### GitHub / Gist
-- URL of each file page
+- URL of each file page as below
   - https://github.com/nkmk/hexo-tag-github-code/blob/master/index.js
   - https://gist.github.com/nkmk/d60cdbcffdb60d624ac01871543f79a2
   - https://gist.github.com/nkmk/d60cdbcffdb60d624ac01871543f79a2#file-sample-py
-- URL link to raw file
+- URL links to raw file as below
   - https://raw.githubusercontent.com/nkmk/hexo-tag-github-code/master/index.js
   - https://gist.githubusercontent.com/nkmk/d60cdbcffdb60d624ac01871543f79a2/raw/e7528c00addcdd0b4d00cb9bbd8d225cc132fbfc/sample.py
 
