@@ -15,7 +15,7 @@ function get_code(url, callback){
 }
 
 function ghcode(args){
-    codeTag = hexo.extend.tag.env.extensions.code.fn
+    var codeTag = hexo.extend.tag.env.extensions.code.fn
     var url = args[0]
     var start = args[1]
     if(start == undefined){
@@ -27,8 +27,8 @@ function ghcode(args){
     var basename = path.basename(raw_url)
     return new Promise(function(resolve, reject){
         get_code(raw_url, function(data){
-            split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
-            result = codeTag([basename, 'lang:' + ext, url, 'first_line:' + start], split_data)
+            var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
+            var result = codeTag([basename, 'lang:' + ext, url, 'first_line:' + start], split_data)
             resolve(result)
         })
     })
