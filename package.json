@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-github-code",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "insert github code",
   "main": "index.js",
   "repository": {
