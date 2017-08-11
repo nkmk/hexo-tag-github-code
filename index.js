@@ -67,30 +67,75 @@ function ghcode(args){
     }, options);
 
     var raw_url
-
-    if(url.search(/github.com/) != -1){
-        raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '')
-    }else{
-        raw_url = url
-    }
-
-    var ext = path.extname(raw_url).slice(1)
-    var basename = path.basename(raw_url)
+    var ext
+    var basename
     return new Promise(function(resolve, reject){
-        get_code(raw_url, function(data){
-            var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
-            var arg
-            if(options['cap']){
-                arg = [basename, 'lang:' + ext, url]
+        if(url.search(/gist.github.com/) != -1){
+            if(url.search(/#file-/) != -1){
+                var s = url.match(/#file-[\w-]+/)
+                var file = s[0].slice(6).replace(/(.*)-/, "$1.")
+                var base = url.slice(0, s['index'])
+                var js_url = base + '.js?file=' + file
             }else{
-                arg = ['lang:' + ext]
+                var js_url = url + '.js'
             }
-            if(!options['re']){
-                arg.push('first_line:' + start)
-            }
-            result = codeTag(arg, split_data)
-            resolve(result)
-        })
+            get_code(js_url, function(data){
+                raw_url = data.match(/https:\/\/gist.github.com[\w/:%#\$&\?\(\)~\.=\+\-]+/)[0]
+                raw_url = raw_url.replace(/gist.github.com/, 'gist.githubusercontent.com').replace(/blob\//, '')
+                ext = path.extname(raw_url).slice(1)
+                basename = path.basename(raw_url)
+                get_code(raw_url, function(data){
+                    var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
+                    var arg
+                    if(options['cap']){
+                        arg = [basename, 'lang:' + ext, url]
+                    }else{
+                        arg = ['lang:' + ext]
+                    }
+                    if(!options['re']){
+                        arg.push('first_line:' + start)
+                    }
+                    result = codeTag(arg, split_data)
+                    resolve(result)
+                })
+            })
+        }else if(url.search(/github.com/) != -1){
+            raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '')
+            ext = path.extname(raw_url).slice(1)
+            basename = path.basename(raw_url)
+            get_code(raw_url, function(data){
+                var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
+                var arg
+                if(options['cap']){
+                    arg = [basename, 'lang:' + ext, url]
+                }else{
+                    arg = ['lang:' + ext]
+                }
+                if(!options['re']){
+                    arg.push('first_line:' + start)
+                }
+                result = codeTag(arg, split_data)
+                resolve(result)
+            })
+        }else{
+            raw_url = url
+            ext = path.extname(raw_url).slice(1)
+            basename = path.basename(raw_url)
+            get_code(raw_url, function(data){
+                var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
+                var arg
+                if(options['cap']){
+                    arg = [basename, 'lang:' + ext, url]
+                }else{
+                    arg = ['lang:' + ext]
+                }
+                if(!options['re']){
+                    arg.push('first_line:' + start)
+                }
+                result = codeTag(arg, split_data)
+                resolve(result)
+            })
+        }
     })
 }
 
