@@ -12,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/nkmk/hexo-tag-github-code/issues"
   },
-  "homepage": "https://github.com/nkmk/hexo-tag-github-code#readme"
+  "homepage": "https://github.com/nkmk/hexo-tag-github-code#readme",
+  "dependencies": {
+    "lodash.assign": "^4.2.0"
+  }
 }
