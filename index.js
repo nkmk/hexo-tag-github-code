@@ -34,7 +34,7 @@ function str2obj(s){
 function get_result(data, url, raw_url, start, stop, options, codeTag){
     var split_data = data.split(/\r\n|\r|\n/).slice(start - 1, stop).join('\n')
     var ext = path.extname(raw_url).slice(1)
-    var basename = path.basename(raw_url)
+    var basename = options['name'] || path.basename(raw_url)
     var arg
     if(options['cap']){
         arg = [basename, 'lang:' + ext, url]
