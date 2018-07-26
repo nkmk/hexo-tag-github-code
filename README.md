@@ -30,12 +30,13 @@ If URL links to raw file, it will work.
 
 ## Options
 
-Set like as `{cap:false,re:true}`. Please do __NOT__ insert any spaces.
+Set like as `{cap:false,re:true,lang:javascript}`. Please do __NOT__ insert any spaces.
 
 | option | description | default |
 | :--- | :--- | :--- |
 | cap| `true`: show caption<br> `false`: no caption | `true` |
 | re| `true`: the first line number restart from 1<br> `false`: the first line number start from original code number | `false` |
+| lang| the language to use for highlighting | the extension of the file |
 
 ### Config setting
 
@@ -76,3 +77,8 @@ Insert code from line 17 to line 22.
 ```
 
 ![Restart the first line number from 1](https://i.gyazo.com/dc3611fc637352bbe5c57bf7d94f60f2.png)
+
+### Force the language highlighting to HTML for a JavaScript file
+```
+{% ghcode https://github.com/nkmk/hexo-list-related-posts/blob/master/lib/index.js 17 22 {lang:html} %}
+```
