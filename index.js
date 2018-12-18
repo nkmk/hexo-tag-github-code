@@ -37,7 +37,7 @@ function get_result(data, url, raw_url, start, stop, options, codeTag){
     var basename = path.basename(raw_url)
     var arg
     if(options['cap']){
-        arg = [basename, 'lang:' + ext, url]
+        arg = [basename, 'lang:' + ext, url, options['link']]
     }else{
         arg = ['lang:' + ext]
     }
@@ -91,7 +91,8 @@ function ghcode(args){
 
     options = assign({
         cap: cap_default,
-        re: re_default
+        re: re_default,
+        link: 'link'
     }, options);
 
     var raw_url

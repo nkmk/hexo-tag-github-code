@@ -39,6 +39,7 @@ Set like as `{cap:false,re:true}`. Please do __NOT__ insert any spaces.
 | :--- | :--- | :--- |
 | cap| `true`: show caption<br> `false`: no caption | `true` |
 | re| `true`: the first line number restart from 1<br> `false`: the first line number start from original code number | `false` |
+| link| link name of url | `link` |
 
 ### Config setting
 
@@ -48,6 +49,7 @@ You can change default settings in `_config.yml` as below.
 github_code:
   cap: false
   re: true
+  link: 'link'
 ```
 
 
