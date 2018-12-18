@@ -24,6 +24,9 @@ $ npm install hexo-tag-github-code --save
 - URL links to raw file as below
   - https://raw.githubusercontent.com/nkmk/hexo-tag-github-code/master/index.js
   - https://gist.githubusercontent.com/nkmk/d60cdbcffdb60d624ac01871543f79a2/raw/e7528c00addcdd0b4d00cb9bbd8d225cc132fbfc/sample.py
+- URL of github permalink
+  - https://github.com/nkmk/hexo-tag-github-code/blob/master/index.js#L5-L16
+  - https://github.com/nkmk/hexo-tag-github-code/blob/master/index.js#L116
 
 ### Other site
 If URL links to raw file, it will work.

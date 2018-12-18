@@ -52,9 +52,21 @@ function ghcode(args){
     var url = args[0]
     var options = {}
     var start, stop
+
+    var groups = url.match(/#(L(\d+))(-L(\d+))?/)
+    if(groups && groups.length != -1){
+        if(groups.length = 5){
+            start = parseInt(groups[2], 10)
+            stop = parseInt(groups[4], 10)
+        }else if(groups.length = 3){
+            start = parseInt(groups[2], 10)
+            stop = parseInt(groups[2], 10)
+        }
+    }
+
     if(typeof(args[1]) == 'string' && args[1].charAt(0) == '{'){
         options = str2obj(args[1])
-    }else{
+    }else if(start == undefined){
         start = args[1]
         stop = args[2]
     }
@@ -100,7 +112,7 @@ function ghcode(args){
                 })
             })
         }else if(url.search(/github.com/) != -1){
-            raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '')
+            raw_url = url.replace(/github.com/, 'raw.githubusercontent.com').replace(/blob\//, '').replace(/#(L(\d+))(-L(\d+))?/, '')
             get_code(raw_url, function(data){
                 resolve(get_result(data, url, raw_url, start, stop, options, codeTag))
             })
