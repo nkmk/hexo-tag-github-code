@@ -37,9 +37,19 @@ function get_result(data, url, raw_url, start, stop, options, codeTag){
     var basename = path.basename(raw_url)
     var arg
     if(options['cap']){
-        arg = [basename, 'lang:' + ext, url]
+        if (options['lang']){
+            arg = [basename, 'lang:' + options['lang'], url]
+        }
+        else{
+            arg = [basename, 'lang:' + ext, url]
+        }
     }else{
-        arg = ['lang:' + ext]
+        if (options['lang']){
+            arg = ['lang:' + options['lang']]
+        }
+        else{
+            arg = ['lang:' + ext]
+        }
     }
     if(!options['re']){
         arg.push('first_line:' + start)
